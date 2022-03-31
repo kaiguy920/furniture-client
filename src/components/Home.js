@@ -1,4 +1,4 @@
-import IndexPets from "./pets/IndexPets"
+import IndexFurniture from "./furniture/IndexFurniture"
 
 const Home = (props) => {
 	// const { msgAlert, user } = props
@@ -7,9 +7,10 @@ const Home = (props) => {
 	return (
 		<>
 			<h2>Home Page</h2>
-			<IndexPets />
+			<IndexFurniture />
 		</>
 	)
 }
 
 export default Home
+
