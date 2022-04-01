@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { getAllFurniture } from '../../api/furniture'
 
 const IndexFurniture = (props) => {
     const [furniture, setFurniture] = useState(null)
 
     useEffect(() => {
-        console.log('useEffect ran!');
+        // console.log('useEffect ran!');
         getAllFurniture()
             .then(res => {
                 setFurniture(res.data.furniture)
@@ -24,7 +25,10 @@ const IndexFurniture = (props) => {
     if (furniture.length > 0) {
         furnitureJsx = furniture.map(furniture => (
             <li key={furniture.id}>
-                {furniture.type}
+                <Link to={`/furniture/${furniture._id}`}>
+                    {furniture.type}
+                </Link>
+
             </li>
         ))
     }

@@ -2,6 +2,7 @@
 import React, { useState, Fragment } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from './components/Home'
+import ShowFurniture from './components/furniture/ShowFurniture'
 
 
 const App = () => {
@@ -9,6 +10,7 @@ const App = () => {
 		<Fragment>
 			<Routes>
 				<Route path='/' element={<Home />} />
+				<Route path='/furniture/:id' element={<ShowFurniture />} />
 			</Routes>
 		</Fragment>
 	)
