@@ -5,6 +5,7 @@ const IndexFurniture = (props) => {
     const [furniture, setFurniture] = useState(null)
 
     useEffect(() => {
+        console.log('useEffect ran!');
         getAllFurniture()
             .then(res => {
                 setFurniture(res.data.furniture)
