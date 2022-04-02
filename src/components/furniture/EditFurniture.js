@@ -1,17 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
-import { createFurniture } from '../../api/furniture'
-import FurnitureForm from '../shared/FurnitureForm'
 
 import Layout from './../shared/Layout'
+import FurnitureForm from '../shared/FurnitureForm'
 
-
-
-// inherit from the component class
-const CreateFurniture = () => {
+const EditFurniture = (props) => {
 
     const [furniture, setFuniture] = useState({ type: '', roomLocation: '', material: '', accomodates: '' })
+    const [updated, setUpdated] = useState(false)
 
     const handleChange = (event) => {
         event.persist()
@@ -27,13 +23,6 @@ const CreateFurniture = () => {
         })
     }
 
-    const handleSubmit = (event) => {
-        event.preventDefault()
-
-        createFurniture(furniture)
-            .then(res => { navigate(`/furniture/${res.data.furniture.id}`) })
-            .catch(console.error)
-    }
 
     return (
         <Layout>
@@ -44,7 +33,6 @@ const CreateFurniture = () => {
             />
         </Layout>
     )
-
 }
 
-export default CreateFurniture
+export default EditFurniture

@@ -19,13 +19,13 @@ const ShowFurniture = (props) => {
             .catch(console.error)
     }, [updated])
 
-    // const removeFurniture = () => {
-    //     removeFurniture(furniture._id)
+    const removeFurniture = () => {
+        removeFurniture(furniture._id)
 
 
-    //         .then(() => { navigate(`/`) })
-    //         .catch(console.error)
-    // }
+            .then(() => { navigate(`/`) })
+            .catch(console.error)
+    }
 
 
     return (
@@ -36,11 +36,10 @@ const ShowFurniture = (props) => {
             <h4>Made out of: {furniture.material}</h4>
             <h4>Accomodates: {furniture.accomodates}</h4>
 
-            <Button>
-                Edit
-            </Button>
-            <Button>
-                Delete
+            <Link to={`/furniture/${props.match.params.id}/edit`}>Update Furniture!</Link>
+
+            <Button onClick={() => removeFurniture()} variant="danger">
+                Delete Pet
             </Button>
 
         </>
