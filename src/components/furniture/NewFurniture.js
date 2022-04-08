@@ -4,14 +4,10 @@ import { useNavigate } from 'react-router-dom'
 import { createFurniture } from '../../api/furniture'
 import FurnitureForm from '../shared/FurnitureForm'
 
-import Layout from './../shared/Layout'
-
-
-
 // inherit from the component class
 const CreateFurniture = () => {
-
-    const [furniture, setFuniture] = useState({ type: '', roomLocation: '', material: '', accomodates: '' })
+    const navigate = useNavigate()
+    const [furniture, setFurniture] = useState({ type: '', roomLocation: '', material: '', accomodates: '' })
 
     const handleChange = (event) => {
         event.persist()
@@ -36,13 +32,13 @@ const CreateFurniture = () => {
     }
 
     return (
-        <Layout>
-            <FurnitureForm
-                furniture={furniture}
-                handleSubmit={handleSubmit}
-                handleChange={handleChange}
-            />
-        </Layout>
+
+        <FurnitureForm
+            furniture={furniture}
+            handleSubmit={handleSubmit}
+            handleChange={handleChange}
+        />
+
     )
 
 }

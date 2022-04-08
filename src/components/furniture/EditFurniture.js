@@ -1,37 +1,52 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
+import { updateFurniture } from '../../../src/api/furniture'
 
-import Layout from './../shared/Layout'
 import FurnitureForm from '../shared/FurnitureForm'
 
 const EditFurniture = (props) => {
-
-    const [furniture, setFuniture] = useState({ type: '', roomLocation: '', material: '', accomodates: '' })
+    const { updateFurniture } = props
+    const [furniture, setFurniture] = useState({ type: '', roomLocation: '', material: '', accomodates: '' })
     const [updated, setUpdated] = useState(false)
 
-    const handleChange = (event) => {
-        event.persist()
+
+    const handleChange = (e) => {
+        e.persist()
         setFurniture((prevFurniture) => {
-            const name = event.target.name
-            const value = event.target.value
+            const name = e.target.name
+            const value = e.target.value
             const updatedValue = { [name]: value }
+
 
             console.log('prevFurniture', prevFurniture)
             console.log('updatedValue', updatedValue)
+
+            // const editedFurniture = Object.assign({}, prevFurniture, updatedValue)
 
             return { ...prevFurniture, ...updatedValue }
         })
     }
 
+    const handleSubmit = (e) => {
+        // e === event
+        e.preventDefault()
+        updateFurniture(furniture)
+            .then(() => setUpdated(true))
+            .catch(console.error)
 
+    }
+
+    // if (updated) {
+    //     return <Redirect to={`/furniture/${props.match.params.id}`} />
+    // }
     return (
-        <Layout>
-            <FurnitureForm
-                furniture={furniture}
-                handleSubmit={handleSubmit}
-                handleChange={handleChange}
-            />
-        </Layout>
+
+        <FurnitureForm
+            furniture={furniture}
+            handleSubmit={handleSubmit}
+            handleChange={handleChange}
+        />
+
     )
 }
 

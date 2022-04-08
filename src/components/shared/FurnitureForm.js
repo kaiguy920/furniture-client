@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Form, Container, Button } from 'react-bootstrap'
 
-const PetForm = (props) => {
+const FurnitureForm = (props) => {
     const { furniture, handleChange, handleSubmit } = props
 
     return (
@@ -29,6 +29,7 @@ const PetForm = (props) => {
                     name='material'
                     onChange={handleChange}
                 />
+                <Form.Label>Accomodates</Form.Label>
                 <Form.Control
                     placeholder="how many people can it accomodate?"
                     value={furniture.accomodates}

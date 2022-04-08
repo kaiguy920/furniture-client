@@ -17,13 +17,13 @@ export const createFurniture = (newFurniture) => {
     return axios({
         url: `${apiUrl}/`,
         method: 'POST',
-        data: { furniture: updatedFurniture }
+        data: { furniture: newFurniture }
     })
 }
 
 // // PATCH -> update function
 export const updateFurniture = (updatedFurniture) => {
-    console.log('this is newFurniture', newFurniture)
+    console.log('this is updatedFurniture', updatedFurniture)
     return axios({
         url: `${apiUrl}/furniture/${updatedFurniture.id}`,
         method: 'PATCH',
