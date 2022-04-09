@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from 'react'
-import { Redirect } from 'react-router-dom'
-import { updateFurniture } from '../../../src/api/furniture'
+import { useParams, useNavigate } from 'react-router-dom'
+import { updateFurniture, getOneFurniture } from '../../../src/api/furniture'
 
 import FurnitureForm from '../shared/FurnitureForm'
 
 const EditFurniture = (props) => {
-    const { updateFurniture } = props
+    // const { updateFurniture } = props
+    const { id } = useParams()
     const [furniture, setFurniture] = useState({ type: '', roomLocation: '', material: '', accomodates: '' })
     const [updated, setUpdated] = useState(false)
+    const navigate = useNavigate()
 
+    useEffect(() => {
+        getOneFurniture(id)
+            .then(res => setFurniture(res.data.furniture))
+            .catch(console.error)
+    }, [])
 
     const handleChange = (e) => {
         e.persist()
@@ -21,9 +28,9 @@ const EditFurniture = (props) => {
             console.log('prevFurniture', prevFurniture)
             console.log('updatedValue', updatedValue)
 
-            // const editedFurniture = Object.assign({}, prevFurniture, updatedValue)
+            const editedFurniture = Object.assign({}, prevFurniture, updatedValue)
 
-            return { ...prevFurniture, ...updatedValue }
+            return editedFurniture
         })
     }
 
@@ -32,19 +39,18 @@ const EditFurniture = (props) => {
         e.preventDefault()
         updateFurniture(furniture)
             .then(() => setUpdated(true))
+            .then(() => navigate('/'))
             .catch(console.error)
 
     }
 
-    // if (updated) {
-    //     return <Redirect to={`/furniture/${props.match.params.id}`} />
-    // }
     return (
 
         <FurnitureForm
             furniture={furniture}
             handleSubmit={handleSubmit}
             handleChange={handleChange}
+            cancelPath={`/furniture/${id}`}
         />
 
     )

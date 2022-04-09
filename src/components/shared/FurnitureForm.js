@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { Form, Container, Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const FurnitureForm = (props) => {
-    const { furniture, handleChange, handleSubmit } = props
+    const { furniture, handleChange, handleSubmit, cancelPath } = props
 
     return (
         <Container className="justify-content-center">
@@ -38,6 +39,11 @@ const FurnitureForm = (props) => {
                     onChange={handleChange}
                 />
                 <Button type='submit'>Submit</Button>
+
+                <Link to={cancelPath}>
+                    <button>Cancel</button>
+                </Link>
+
             </Form>
         </Container>
     )
