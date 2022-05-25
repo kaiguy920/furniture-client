@@ -30,19 +30,23 @@ const ShowFurniture = (props) => {
 
     return (
         <>
+            <div class='container'>
+                <div class='about'>
+                    <h2>About this {furniture?.type}</h2>
+                    <h4>Room location: {furniture?.roomLocation}</h4>
+                    <h4>Made out of: {furniture?.material}</h4>
+                    <h4>Accomodates: {furniture?.accomodates}</h4>
+                </div>
+                <div class='links'>
+                    <Link to={`/furniture/${id}/edit`} class='linky'>Update Furniture!</Link>
 
-            <h2>About this {furniture?.type}</h2>
-            <h4>Room location: {furniture?.roomLocation}</h4>
-            <h4>Made out of: {furniture?.material}</h4>
-            <h4>Accomodates: {furniture?.accomodates}</h4>
+                    <Button class='linky' onClick={() => removeTheFurniture()} variant="danger">
+                        Delete {furniture?.type}
+                    </Button>
 
-            <Link to={`/furniture/${id}/edit`}>Update Furniture!</Link>
-
-
-            <Button onClick={() => removeTheFurniture()} variant="danger">
-                Delete {furniture?.type}
-            </Button>
-
+                    <a class="btn btn-primary linky" href="/">Back</a>
+                </div>
+            </div>
         </>
     )
 }

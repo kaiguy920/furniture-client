@@ -38,14 +38,18 @@ const FurnitureForm = (props) => {
                     type='number'
                     onChange={handleChange}
                 />
-                <Button type='submit'>Submit</Button>
+                <div class='links'>
 
-                <Link to={cancelPath}>
-                    <button>Cancel</button>
-                </Link>
+                    <Button type='submit'>Submit</Button>
+
+                    <Link to={cancelPath}>
+                        <Button variant="danger">Cancel</Button>
+                    </Link>
+
+                </div>
 
             </Form>
-        </Container>
+        </Container >
     )
 }
 
