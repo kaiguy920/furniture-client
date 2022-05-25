@@ -39,6 +39,7 @@ const IndexFurniture = (props) => {
             <ul>
                 {furnitureJsx}
             </ul>
+            <a class="btn btn-primary linky" href="/furniture">Add</a>
         </>
     )
 }

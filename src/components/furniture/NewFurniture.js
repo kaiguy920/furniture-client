@@ -27,7 +27,7 @@ const CreateFurniture = () => {
         event.preventDefault()
 
         createFurniture(furniture)
-            .then(res => { navigate(`/furniture/${res.data.furniture.id}`) })
+            .then(() => navigate(`/`))
             .catch(console.error)
     }
 
@@ -37,6 +37,7 @@ const CreateFurniture = () => {
             furniture={furniture}
             handleSubmit={handleSubmit}
             handleChange={handleChange}
+            cancelPath={`/`}
         />
 
     )
