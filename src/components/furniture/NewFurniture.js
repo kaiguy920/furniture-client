@@ -27,7 +27,7 @@ const CreateFurniture = () => {
         event.preventDefault()
 
         createFurniture(furniture)
-            .then(() => navigate(`/`))
+            .then(res => { navigate(`/furniture/${res.data.furniture.id}`) })
             .catch(console.error)
     }
 

@@ -20,7 +20,7 @@ const FurnitureForm = (props) => {
                 <Form.Control
                     placeholder="what room would this furniture go?"
                     value={furniture.roomLocation}
-                    name='roomlocation'
+                    name='roomLocation'
                     onChange={handleChange}
                 />
                 <Form.Label>Material</Form.Label>
