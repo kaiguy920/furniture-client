@@ -15,7 +15,7 @@ export const getOneFurniture = (furnitureId) => {
 export const createFurniture = (newFurniture) => {
     console.log('this is newFurniture', newFurniture)
     return axios({
-        url: `${apiUrl}/`,
+        url: `${apiUrl}/furniture`,
         method: 'POST',
         data: { furniture: newFurniture }
     })

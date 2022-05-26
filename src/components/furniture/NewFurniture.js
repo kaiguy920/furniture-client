@@ -31,6 +31,8 @@ const CreateFurniture = () => {
             .catch(console.error)
     }
 
+
+
     return (
 
         <FurnitureForm
