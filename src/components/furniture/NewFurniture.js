@@ -5,9 +5,10 @@ import { createFurniture } from '../../api/furniture'
 import FurnitureForm from '../shared/FurnitureForm'
 
 // inherit from the component class
-const CreateFurniture = () => {
+const NewFurniture = () => {
     const navigate = useNavigate()
     const [furniture, setFurniture] = useState({ type: '', roomLocation: '', material: '', accomodates: '' })
+    console.log("furniture in create", furniture)
 
     const handleChange = (event) => {
         event.persist()
@@ -25,9 +26,14 @@ const CreateFurniture = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        console.log("furniture in submit", furniture)
 
         createFurniture(furniture)
-            .then(res => { navigate(`/furniture/${res.data.furniture.id}`) })
+            .then(res => {
+                navigate(`/furniture/${res.data.furniture._id}`)
+                console.log(res)
+            })
+
             .catch(console.error)
     }
 
@@ -39,11 +45,11 @@ const CreateFurniture = () => {
             furniture={furniture}
             handleSubmit={handleSubmit}
             handleChange={handleChange}
-            cancelPath={`/`}
+            cancelPath={`/furniture`}
         />
 
     )
 
 }
 
-export default CreateFurniture
+export default NewFurniture

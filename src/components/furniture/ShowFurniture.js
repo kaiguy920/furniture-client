@@ -23,7 +23,7 @@ const ShowFurniture = (props) => {
     const removeTheFurniture = () => {
         removeFurniture(furniture._id)
 
-            .then(() => { navigate(`/`) })
+            .then(() => { navigate(`/furniture`) })
             .catch(console.error)
     }
 
@@ -44,7 +44,7 @@ const ShowFurniture = (props) => {
                         Delete {furniture?.type}
                     </Button>
 
-                    <a class="btn btn-primary linky" href="/">Back</a>
+                    <a class="btn btn-primary linky" href="/furniture">Back</a>
                 </div>
             </div>
         </>

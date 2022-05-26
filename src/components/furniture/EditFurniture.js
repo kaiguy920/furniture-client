@@ -39,7 +39,7 @@ const EditFurniture = (props) => {
         e.preventDefault()
         updateFurniture(furniture)
             .then(() => setUpdated(true))
-            .then(() => navigate('/'))
+            .then(() => navigate('/furniture'))
             .catch(console.error)
 
     }

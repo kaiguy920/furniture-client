@@ -11,9 +11,9 @@ const App = () => {
 	return (
 		<Fragment>
 			<Routes>
-				<Route path='/' element={<Home />} />
+				<Route path='/furniture' element={<Home />} />
 				<Route path='/furniture/:id' element={<ShowFurniture />} />
-				<Route path='/furniture' element={<NewFurniture />} />
+				<Route path='/furniture/new' element={<NewFurniture />} />
 				<Route path='/furniture/:id/edit' element={<EditFurniture />} />
 
 
