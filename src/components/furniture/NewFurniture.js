@@ -30,8 +30,8 @@ const NewFurniture = () => {
 
         createFurniture(furniture)
             .then(res => {
+                console.log('BANANA:::::', res)
                 navigate(`/furniture/${res.data.furniture._id}`)
-                console.log(res)
             })
 
             .catch(console.error)
