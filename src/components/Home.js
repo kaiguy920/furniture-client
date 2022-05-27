@@ -6,8 +6,10 @@ const Home = (props) => {
 
 	return (
 		<>
-			<h2>Home Page</h2>
-			<IndexFurniture />
+			<div class='container'>
+				<h2>The Nature of Furni</h2>
+				<IndexFurniture />
+			</div>
 		</>
 	)
 }
