@@ -3,6 +3,7 @@ import { Form, Container, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const FurnitureForm = (props) => {
+    // const [furniture, setFurniture] = useState([])
     const { furniture, handleChange, handleSubmit, cancelPath } = props
 
     return (
@@ -17,6 +18,19 @@ const FurnitureForm = (props) => {
                     onChange={handleChange}
                 />
                 <Form.Label>Room Location</Form.Label>
+                {/* {furniture.map((furniture, index) => {
+                    return (
+                        <Form.Check
+                            key={index}
+                            inline
+                            label={furniture.roomLocation}
+                            name="roomLocation"
+                        // value={tag._id}
+                        // onChange={(e) => handleTagSelect(e, tag)}
+                        // defaultChecked={selectedTags.includes(tag._id)}
+                        />
+                    )
+                })} */}
                 <Form.Control
                     placeholder="what room would this furniture go?"
                     value={furniture.roomLocation}
