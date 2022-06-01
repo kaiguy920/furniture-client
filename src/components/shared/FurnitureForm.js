@@ -18,25 +18,25 @@ const FurnitureForm = (props) => {
                     onChange={handleChange}
                 />
                 <Form.Label>Room Location</Form.Label>
-                {/* {furniture.map((furniture, index) => {
-                    return (
-                        <Form.Check
-                            key={index}
-                            inline
-                            label={furniture.roomLocation}
-                            name="roomLocation"
-                        // value={tag._id}
-                        // onChange={(e) => handleTagSelect(e, tag)}
-                        // defaultChecked={selectedTags.includes(tag._id)}
-                        />
-                    )
-                })} */}
-                <Form.Control
+
+                <Form.Select aria-label="Room Location" name="roomLocation" defaultValue={furniture.roomLocation} onChange={handleChange}>
+                    <option>Open this select menu</option>
+                    <option value="living room">living room</option>
+                    <option value="bedroom">bedroom</option>
+                    <option value="kitchen">kitchen</option>
+                    <option value="bathroom">bathroom</option>
+                    <option value="dining room">dining room</option>
+                    <option value="office">office</option>
+                    <option value="library">library</option>
+                    <option value="spare room">spare room</option>
+                </Form.Select>
+
+                {/* <Form.Control
                     placeholder="what room would this furniture go?"
                     value={furniture.roomLocation}
                     name='roomLocation'
                     onChange={handleChange}
-                />
+                /> */}
                 <Form.Label>Material</Form.Label>
                 <Form.Control
                     placeholder="what is made out of?"
