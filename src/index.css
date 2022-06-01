@@ -17,6 +17,13 @@ code {
   margin-top: 30px;
 }
 
+h2 {
+color: purple
+}
+
+Label {
+  font-size: 25px;
+}
 
 .links {
   padding: 20px;

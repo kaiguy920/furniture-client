@@ -8,7 +8,7 @@ const FurnitureForm = (props) => {
 
     return (
         <Container className="justify-content-center">
-            <h3>Create Furniture</h3>
+            <h2>Create Furniture</h2>
             <Form onSubmit={handleSubmit}>
                 <Form.Label>Type</Form.Label>
                 <Form.Control
@@ -19,7 +19,7 @@ const FurnitureForm = (props) => {
                 />
                 <Form.Label>Room Location</Form.Label>
 
-                <Form.Select aria-label="Room Location" name="roomLocation" defaultValue={furniture.roomLocation} onChange={handleChange}>
+                <Form.Select aria-label="Room Location" name="roomLocation" value={furniture.roomLocation} onChange={handleChange}>
                     <option>Open this select menu</option>
                     <option value="living room">living room</option>
                     <option value="bedroom">bedroom</option>
@@ -30,13 +30,6 @@ const FurnitureForm = (props) => {
                     <option value="library">library</option>
                     <option value="spare room">spare room</option>
                 </Form.Select>
-
-                {/* <Form.Control
-                    placeholder="what room would this furniture go?"
-                    value={furniture.roomLocation}
-                    name='roomLocation'
-                    onChange={handleChange}
-                /> */}
                 <Form.Label>Material</Form.Label>
                 <Form.Control
                     placeholder="what is made out of?"
